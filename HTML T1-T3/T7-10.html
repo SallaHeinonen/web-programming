@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+    <style>
+        
+        td {
+            background-color:mediumpurple;
+        }
+
+    </style>
+    </head>
+
+<body>
+    <form action="https://garagecoders.azurewebsites.net/process" method="post">
+    <table>
+        <tr>
+        <td>
+    <fieldset>
+        <legend><b>Ilmoittautuminen</b></legend>
+
+        <table>
+        
+        <tr><td>    <label for="Oppilaitos">Oppilaitos</label>  </td>
+            <td>    <input type="text" value="Savonia AMK" readonly>     </td></tr>
+        </tr>
+        
+        <tr><td>    <label for="Nimi">Nimi</label>              </td>
+            <td>    <input type="text" name="name" id="name">   </td></tr>
+
+        <tr><td>    <label for="Vuosikurssi">Vuosikurssi</label>                    </td>
+            <td>    <input type="password" name="yearOfStudy" id="yearOfStudy">     </td></tr>
+
+        <tr><td>    <label for="Kurssin nimi">Kurssin nimi</label>          </td>
+            <td>    <select name="courseName" id="coursenames" multiple>
+                        <option value="Web-ohjelmointi 1">Web-ohjelmointi 1</option>
+                        <option value="Tietokonejärjestelmät">Tietokonejärjestelmät</option>
+                        <option value="Palvelutuotanto">Palvelutuotanto</option>
+                        <option value="Tiedonhallinta ja SQL">Tiedonhallinta ja SQL</option>
+                    </select>                                               </td></tr>
+
+        <tr><td>    <label for="Kurssin tyyppi">Kurssin tyyppi</label>      </td>   
+            <td>    <select name="courseType">                 
+                        <option value="Lähiopetus">Lähiopetus</option>
+                        <option value="Zoom/Etäopetus">Etäopetus/Zoom</option>
+                        <option value="Hybridi">Hybrid</option>
+                    </select>                                               </td></tr>
+
+        <tr><td>    <label for="Sukupuoli">Sukupuoli</label>               </td>
+            <td>    <input type="radio" name="gender" value="Nainen">
+                    <label for="Female">Nainen</label>                  </td></tr>
+        <tr><td>                                                        </td>
+            <td>    <input type="radio" name="gender" value="Mies">
+                    <label for="Male">Mies</label>                      </td></tr>
+
+        <tr><td>    <label for="Harrastukset">Harrastukset</label>                  </td>
+
+            <td>    <input name="hobby_videogaming" type="checkbox" value="Videopelit">
+                    <label for="Videopelit">Videopelit</label>                      </td></tr>
+        <tr><td>                                                                    </td>
+            <td>    <input name="hobby_baking" type="checkbox" value="Leivonta">
+                    <label for="Leivonta">Leivonta</label>                          </td></tr>
+        <tr><td>                                                                    </td>
+            <td>    <input name="hobby_biking" type="checkbox" value="Pyöräily" checked="checked">
+                    <label for="Pyöräily">Pyöräily</label>                          </td></tr>
+        <tr><td>                                                                    </td>
+            <td>    <input name="hobby_fishing" type="checkbox" value="Kalastus">
+                    <label for="Kalastus">Kalastus</label>                          </td></tr>
+
+        <tr><td>                                                    </td>
+            <td>    <input type="image" src="bee_.png" alt="Lähetä"></td></tr>
+        <tr><td>                                                    </td>                                                      
+            <td>    <input type="reset" value="Tyhjennä">           </td></tr>
+        
+        </table>
+        </fieldset>
+        
+        </td>
+        </tr>
+    </table>
+    </form>
+
+</body>
+
+</html>

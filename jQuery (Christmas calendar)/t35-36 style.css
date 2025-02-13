@@ -1,0 +1,35 @@
+html {
+    height: 100%;
+    margin: 0;
+}
+body {
+    background-image: url("christmas-bg.jpg"); /*Koko nettisivun täyttävä taustakuva*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+}
+
+#calendar {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    /*Kalenterin kaikki elementit grid-tyylillä*/
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+.box {
+    width: 200px;
+    height: 200px;
+    border: 3px solid white;
+    background-color:rgb(255, 84, 69);
+    margin: 5px;
+    /* These three are imporant, all are needed to get the text to the center of the box-element */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

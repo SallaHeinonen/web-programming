@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        #top {
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            /*
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: stretch;
+            */
+        }
+        #mid {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #wrap {
+            display: flex;
+            flex-direction: row;
+        }
+        #left {
+            flex-wrap: wrap;
+            display: flex;
+        }
+        #right {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #bottom {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mainstyle {
+            background-color: orange;
+            margin: 3px;
+            padding: 20px;
+        }
+        .titlestyle {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div id="top">
+        <div class="mainstyle"><h1>Tervetuloa flexbox-nettisivuille</h1></div>
+    </div>
+
+    <div id="mid">
+        <div class="mainstyle">
+            <div class="titlestyle">Erillinen osio headerin alapuolella</div>
+            <p>Pientä tekstiä otsikon alapuolella</p>
+        </div>
+    </div>
+
+    <div id="wrap">
+        <div id="left">
+            <div class="mainstyle">
+                <div class="titlestyle">Vasemmanpuoleinen osio</div>
+                <p>With more random text to show if the flexbox is working correctly and not flowing overboard. The flexbox to the right should stretch propely along with this one, whenever the width of the website is changed.</p>
+            </div>
+        </div>
+
+        <div id="right">
+            <div class="mainstyle">
+                <div class="titlestyle">Osta tästä mainospaikka!</div>
+                <p>Here's a pile of our products flashing for people to buy! Consume more and more!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="bottom">
+        <div class="mainstyle">
+            <p>Footerin pohjateksti~</p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

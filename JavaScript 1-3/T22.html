@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script>
+
+        function laskeTaulukko(taulukko) {
+
+            let min = Math.min(...taulukko); // Kun käytetään Arrayta, muista "..." alkuun
+            let max = Math.max(...taulukko);
+
+            let sum = 0;
+            for (let i = 0; i < taulukko.length; i++) {
+                sum += taulukko[i];
+            }
+
+            var summa = 0;
+            for (var number of taulukko) {
+                summa += number;
+            }
+            avg = summa / taulukko.length;
+
+            console.log("Pienin arvo on " + min);
+            console.log("Suurin arvo on " + max);
+            console.log("Summa on " + sum);
+            console.log("Keskiarvo on " + avg);
+        }
+
+        let taulukko = [7, 16, 28, 3, 11, 23, 24, 9];
+
+        laskeTaulukko(taulukko);
+
+    </script>
+
+</head>
+<body>
+    <p>Taulukon pienin ja suurin arvo, sekä summa ja keskiarvo, jotka näkyvät konsolissa (Ctrl+Shift+I)</p>
+</body>
+</html>

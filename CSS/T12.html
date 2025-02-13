@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+            .container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+
+                grid-template-areas:
+                "header header header"
+                "midleft midcenter midright" 
+                "footer footer footer";
+                gap: 25px;       
+            }
+            
+            .container > div {
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+            }
+            .item1 {
+                grid-area: header;
+                background-color: dodgerblue;
+                color: white;
+                font-size: 20px;
+                text-align: center;
+                padding: 15px;
+            }
+            .item2 { 
+                grid-area: midleft;
+                background-color:whitesmoke;
+                border-style: ridge;
+                border-color: whitesmoke;
+                word-wrap: break-word;
+                padding: 15px;
+            }
+            .item3 { 
+                grid-area: midcenter;
+                background-color:whitesmoke;
+                border-style: ridge;
+                border-color: whitesmoke;
+                word-wrap: break-word;
+                padding: 15px;
+            }
+            .item4 { 
+                grid-area: midright;
+                background-color:whitesmoke;
+                border-style: ridge;
+                border-color: whitesmoke;
+                word-wrap: break-word;
+                padding: 15px;
+            }
+            .item5 { 
+                grid-area: footer;
+                background-color: dodgerblue;
+                color: white;
+                text-align: center;
+                padding: 5px;
+            }
+
+        </style>
+    </head>
+
+<body>
+    <div class="container">
+        <div class="item1">
+            <h1>CSS Grid-nettisivu</h1>
+            </div>
+        <div class="item2">
+            <h1>Osio 1</h1>
+            <p>Vasemmanpuoleinen laatikko sivuston keskiosassa, iso otsikko, pienet reunat ja harmaa sävy.</p>
+            </div>
+        <div class="item3">
+            <h1>Osio 2</h1>
+            <p>Keskimmäinen laatikko sivuston keskiosassa, iso otsikko, pienet reunat ja harmaa sävy. Tasaus vasemmalle.</p>
+            </div>
+        <div class="item4">
+            <h1>Osio 3</h1>
+            <p>Oikeanpuoleinen laatikko sivuston keskiosassa, iso otsikko, pienet reunat ja harmaa sävy.</p>
+            </div>
+        <div class="item5">
+            <p>© 2023 CSS Grid-nettisivu bottom footer text</p>
+            </div>    
+    </div>
+    
+</body>
+</html>

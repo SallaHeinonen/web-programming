@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<html lang="fi">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    
+    <script>
+        $(function() {
+            // Painike dialogin avaamiseen
+            $('#registerBtn').click(function() {
+                $("#dialog").dialog("open");
+            });
+
+            // Dialogin toiminnot
+            $('#dialog').dialog({
+                // Estetään dialogin automaattinen avautuminen
+                autoOpen: false,
+                title: "Rekisteröityminen",
+                closeOnEscape: false,
+                modal: true,
+
+                // Dialogin avautuessa
+                open: function(event, ui) {
+                    // Piilotetaan oletussulkunäppäin
+                    $('.ui-dialog-titlebar-close', ui.dialog | ui).hide();
+                    
+                    // Nollataan lisätiedot edellisistä
+                    $('#school').prop('disabled', true).val('');
+                    $("#age").spinner("disable").spinner('value', null);
+                },
+
+                // Dialogin 2 painiketta Arrayssa
+                buttons: [{
+                    // Ensimmäisenä Tallenna, jossa tarkistetaan onko tiedot oikein
+                    text: "Tallenna",
+                    click: function() {
+                        let inputName = $('#name').val();
+                        let inputAccount = $('#account').val();
+                        let error = $('#errorMsg');
+                        let user = $("#userInfo");
+                        
+                        // Jos jompikumpi on tyhjä, tulee virheteksti painikkeiden alapuolelle
+                        if (inputName === '' || inputAccount === '') {
+                            error.text("Tekstikenttiä ei saa jättää tyhjäksi.");
+                        } 
+                        // Kun merkkejä on molemmissa vähemmän kuin 5
+                        else if (inputName.length < 5 || inputAccount.length < 5) {
+                            error.text("Teksikenttien merkkikoko on oltava vähintään 5.");
+                        }
+                        // Jos virheitä ei ole, virheilmoitusta ei tule ja dialogi suljetaan
+                        else {
+                            error.text('');
+                            $("#dialog").dialog("close");
+                            user.text("Rekisteröity käyttäjä: " + inputName + " ja käyttäjätunnus: " + inputAccount);
+                            }
+                        }
+                    }, 
+                    { // Seuraava painike Peruuta, jolla voi sulkea dialogin ilman että tiedot tallentuvat
+                    text: "Peruuta",
+                    click: function() {
+                        $("#dialog").dialog("close");
+                    }
+                }],
+
+                // Kentät tyhjentyvät dialogin sulkeutuessa ja checkbox tyhjennetään
+                close: function() {
+                    $('#extraInfo').prop('checked', false);
+                    $('#name').val('');
+                    $('#account').val('');
+                    $("#moreInfo").text(''); // Myös edellisen lisätiedot tyhjentyvät, etteivät jää kummittelemaan
+
+                    // Jos oppilaitosta ja ikää EI ole disabloitu, eli on otettu käyttöön
+                    if (!$('#school').prop('disabled') && !$("#age").spinner('option', 'disabled')) {
+                        let inputSchool = $('#school').val();
+                        let inputAge = $("#age").spinner('value');
+                        let moreInfo = $("#moreInfo");
+
+                        // Tarkistetaan onko arvoja annettu, jos ei, palautuu vain käyttäjän nimi ja tunnus.
+                        if (inputSchool === '' || inputAge === null) {
+                            moreInfo.text(''); // Ja ei palauteta mitään lisäinfon tekstiä
+                        } else {
+                            // Jos lisätiedot on annettu molempiin kohtiin, palautuu niiden arvot tekstinä
+                            moreInfo.text("Käyttäjän oppilaitos: " + inputSchool + " ja ikä: " + inputAge);
+                        }
+                    }
+                }
+            });
+
+            // Aluksi oppilaitos ja ikä ovat disabloitu.
+            $('#school').prop('disabled', true);
+
+            // Iän minimi ja maksimiraja, sekä rajataan arvo
+            $("#age").spinner({
+                min: 16,
+                max: 100,
+                disabled: true,
+                spin: function(event, ui) {
+                    if (ui.value < 0) {
+                        $(this).spinner("value", 0);
+                        return false;
+                    } else if (ui.value > 100) {
+                        $(this).spinner('value', 100);
+                        return false;
+                    }
+                }
+            });
+
+            // Checkboxia klikkaamalla saa molemmat kentät käyttöön
+            $('#extraInfo').change(function() {
+                if ($(this).is(':checked')) { // Kun juuri tämä elementti on "checked"
+                    $('#school').prop('disabled', false);
+                    $("#age").spinner("enable");
+                } 
+                // Jos checkboxia ei ole klikattu tai sitä klikataan uudelleen poistaen kentät käytöstä, 
+                // myös niiden sisältämät tiedot nollaantuvat
+                else {
+                    $('#school').prop('disabled', true).val('');
+                    $("#age").spinner("disable").spinner('value', null);
+                }
+            })
+        });
+
+    </script>
+</head>
+
+<body>
+    <p id="userInfo"></p>
+    <p id="moreInfo"></p>
+
+    <button id="registerBtn">Rekisteröidy</button>
+
+    <div id="dialog">
+        <p>Nimi: <input type="text" id="name"></p>
+        <p>Tunnus: <input type="text" id="account"></p>
+
+        <label for="extraInfo">Lisätietoja</label>
+        <input type="checkbox" name="extraInfo" id="extraInfo"><br>
+
+        <label for="school">Oppilaitos:</label>
+        <input type="text" id="school"><br>
+
+        <label for="age">Ikä:</label>
+        <input id="age"><br>
+
+        <p id="errorMsg" style="color: red"></p>
+    </div>
+ 
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX assignment</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript source codes -->
+    <script src="js\services\apiservice.js"></script>
+    <script src="js\main.js"></script>
+    
+</head>
+<body>
+    <!-- Painikkeet ja toiminnot -->
+    <div class="container-fluid mt-2" id="userOperations">
+        <h1>AJAX assignment</h1>
+        <h3>User Management System</h3>
+        <div id="buttons" class="mt-2 mb-2">
+            <button class="btn btn-primary" id="signUpBtn">SignUp</button>
+            <button class="btn btn-secondary" id="loginBtn">Login</button>
+        </div>
+        <div id="alertDiv" class="mt-2"></div>
+
+        <h3>User Operations</h3>
+        <!-- Painike, joka tuo käyttäjät tietokannasta -->
+        <button class="btn btn-primary mb-2" id="loadUsersBtn">Load Users</button>
+
+        <!-- Painike käyttäjän luomiseen -->
+        <button class="btn btn-success mb-2" id="createUserBtn" data-bs-toggle="modal" data-bs-target="#createUserModal">Create User</button><br>
+        <!-- Tässä aukeaa ikkuna, jossa voi luoda käyttäjän -->
+        <div class="modal fade" id="createUserModal" tabindex="-1" aria-hidden="true" aria-labelledby="createUserLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="createUserLabel">Create User</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <!-- Käyttäjätiedot annetaan tänne-->
+                            <div class="mb-3">
+                                <label for="userEmail" class="col-form-label">Email</label>
+                                <input type="text" class="form-control" id="createUserEmail" placeholder="Enter email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="userFirstName" class="col-form-label">First Name</label>
+                                <input type="text" class="form-control" id="createUserFirstName" placeholder="Enter first name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="userLastName" class="col-form-label">Last Name</label>
+                                <input type="text" class="form-control" id="createUserLastName" placeholder="Enter last name">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="saveNewUserBtn">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Painikkeet sivuja varten tulee tänne -->
+        <div id="pagination" class="pagination"></div>
+    </div>
+
+    <!-- Käyttäjälista -->
+    <div class="container-fluid" id="userHeader">
+        <h2>User List</h2>
+    <div class="d-flex" id="userList">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Avatar</th>
+                    <th>Email</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="user-data" class="user-data">
+            </tbody>
+        </table>
+
+        </div>
+    </div>
+
+    <!-- Modaali tietojen muokkausta varten -->
+    <div class="modal fade" id="editUserModal" tabindex="-1" aria-hidden="true" aria-labelledby="editUserLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUserLabel">Edit User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <!-- Muokattavat käyttäjätiedot-->
+                        <div class="mb-3">
+                            <label for="editUserEmail" class="col-form-label">Email</label>
+                            <input type="text" class="form-control" id="editUserEmail">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editUserFirstName" class="col-form-label">First Name</label>
+                            <input type="text" class="form-control" id="editUserFirstName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editUserLastName" class="col-form-label">Last Name</label>
+                            <input type="text" class="form-control" id="editUserLastName">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="saveEditUserBtn">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+</body>
+</html>

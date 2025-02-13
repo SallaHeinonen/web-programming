@@ -1,0 +1,124 @@
+    <!--
+        Ctrl + K, Ctrl + C = Command line 
+        Ctrl + B = Opening and closing sidebar
+        Shift + Alt + Up/Down = Copy line up/down
+        Ctrl + L = Select current line
+    -->
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Change the default font -->
+    <style>
+        html, body {
+            height: 100%;
+        }
+        #container {
+            background-image: linear-gradient(skyblue,deepskyblue);
+            display: grid;
+            grid-template-columns: repeat(3em, 1fr);
+            grid-template-rows: auto 1fr;
+            grid-template-areas:
+            "title title"
+            "inputs tasks";
+            gap: 4%;
+            height: 100%;
+
+        }
+        #title {
+            grid-area: title;
+            text-align: center;
+            padding-top: 4%;
+            padding-bottom: 3%;
+            text-shadow: 1px 1px 10px #847dff;
+
+        }
+        #inputs {
+            grid-area: inputs;
+            background-color: cornflowerblue;
+            padding: 20px;
+            margin-left: 5%;
+            height: 50%;
+            border-style: ridge;
+            border-color: skyblue;
+            font-size: 20px;
+        }
+        .box {
+            position:relative;
+            margin: 4%;
+            word-wrap: break-word;
+
+        }
+        #tasks {
+            grid-area: tasks;
+            background-color:turquoise;
+            padding: 20px;
+            margin-right: 5%;
+            height: 70%;
+            border-style: ridge;
+            border-color: skyblue;
+        }
+        #tasksarray {
+            width: 100%;
+            padding-top: 2%;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 18px;
+        }
+        #tasksarray th {
+            text-align: center;
+        }
+        td {
+            text-align: center;
+        }
+        .disabled-row {
+            color: gray;
+            text-decoration: line-through;
+        }
+
+    </style>
+
+    <!-- External JS code -->
+    <script src="T25-28 js.js"></script>
+
+</head>
+<body>
+
+    <div id="container">
+        <div id="title">
+            <h2>ToDo-lista</h2>
+            </div>
+        <div id="inputs">
+            <div class="box">
+                <label for="chore">Tehtävä:</label><br>
+                <input type="text" id="chore"><br>
+            </div>
+            <div class="box">
+                <label for="priority">Prioriteetti (1-5):</label><br>
+                <input type="number" id="priority" min="1" max="5"><br>
+            </div>
+            <div class="box">
+                <label for="duedate">Tavoitepäivämäärä:</label><br>
+                <input type="date" value="" id="duedate"><br>
+            </div>
+            <div class="box">
+                <button onclick="createAndAddTask()" id="add">Lisää</button>
+            </div>
+        </div>
+        <div id="tasks">
+            <table id="tasksarray">
+                <tr>
+                    <th onclick="sortTasks('priority')">Prioriteetti</th>
+                    <th onclick="sortTasks('duedate')">Tavoitepäivämäärä</th>
+                    <th onclick="sortTasks('chore')">Tehtävä</th>
+                    <th>Tila</th>
+                    <th onclick="sortTasks('number')">Numero</th>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+</html>

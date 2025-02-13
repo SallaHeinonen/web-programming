@@ -1,0 +1,10 @@
+
+#esipuhe { /* this is ID */
+    text-decoration: underline; /* alleviivattuna */
+    text-align: right; /* tasattuna oikealle */
+    letter-spacing: 10px; /* kirjainten välissä välit */
+    text-indent: 50px; /* sisennys..? */
+    line-height: 40px; /* rivin korkeus */
+
+
+}

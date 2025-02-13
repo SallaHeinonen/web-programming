@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+            .container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+
+                grid-template-areas:
+                "header header"
+                "midleft midright";
+                gap: 25px;       
+            }
+            
+            .container > div {
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+            }
+            .item1 {
+                grid-area: header;
+                background-color: mediumslateblue;
+                color: white;
+                font-size: 20px;
+                text-align: center;
+                padding: 15px;
+            }
+            .item2 { 
+                grid-area: midleft;
+                background-color:mediumorchid;
+                border-style: ridge;
+                border-color: whitesmoke;
+                word-wrap: break-word;
+                padding: 15px;
+            }
+            .item3 { 
+                grid-area: midright;
+                background-color:mediumpurple;
+                border-style: ridge;
+                border-color: whitesmoke;
+                word-wrap: break-word;
+                padding: 15px;
+            }
+            .item2 h1, .item3 h1 {
+                font-size: 20px;
+            }
+            
+            .subbox {
+                background-color: whitesmoke;
+                place-self: center stretch;
+                padding: 20px;
+                border-top: 2px solid lightgray;
+                margin: 0;
+            }
+            .subbox p {
+                margin: 0;
+            }
+
+        </style>
+    </head>
+
+<body>
+    <div class="container">
+        <div class="item1">
+            <h1>Animals & flowers</h1>
+            </div>
+        <div class="item2">
+            <h1>Animals</h1>
+                <div class="subbox"><p>Cheetah</p></div>
+                <div class="subbox"><p>Eagle</p></div>
+                <div class="subbox"><p>Lizard</p></div>
+            </div>
+        <div class="item3">
+            <h1>Flowers</h1>
+                <div class="subbox"><p>Rose</p></div>
+                <div class="subbox"><p>Tulip</p></div>
+                <div class="subbox"><p>Lilac</p></div>
+            </div>
+    </div>
+    
+</body>
+</html>

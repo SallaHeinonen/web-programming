@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script>
+
+        function potenssilaskut(rivit) {
+
+            for (let i = 1; i <= rivit; i++) {
+                /*                    1, 1 - 1 (= 0)    */
+                /*                    2, 2 - 1 (= 1)    */
+                /*                    3, 3 - 1 (= 2)    */
+                /*                    4, 4 - 1 (= 3)    */
+                const luku = Math.pow(i, i - 1);
+
+                /* Remember to add brackets () to make the console.log work */
+                console.log((i) + " potenssiin " + (i - 1) + " = " + luku);
+            }
+        }
+        potenssilaskut(6); // Kutsutaan funktiota 6 rivin verran
+
+    </script>
+
+</head>
+<body>
+    <p>Potenssilaskuja, jotka näkyy konsolissa (Ctrl + Shift + I) </p>
+</body>
+</html>

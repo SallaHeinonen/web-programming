@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sectionstyle {
+            padding: 20px;
+            background-color: dodgerblue;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            align-items: center; /* This prevents the input from going the same size as the submit-button! */
+
+        }
+        .buttonstyle {
+            color: white;
+            background-color: firebrick;
+            padding: 15px;
+            border: none;
+            margin-left:auto;
+        }
+
+        body {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+            <div class="sectionstyle">
+        
+                <label for="Name">Name:&nbsp;</label>
+                <input type="text" name="name" id="name">
+                
+                <button class="buttonstyle">Submit</button>
+
+            </div>
+    </div>
+
+</body>
+</html>

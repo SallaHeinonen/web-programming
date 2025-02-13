@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <html lang="fi">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+        <!-- Suomipaketti -->
+        <script src="datepicker-fi.js"></script>
+        
+        <script>
+            $(function() {
+                $("#datepicker").datepicker({
+                    // Valitaan suomenkielinen muoto
+                    regional: 'fi',
+                    // Minimivuosi, kuukausi (tammikuu alkaa luvulla 0) ja päivä
+                    minDate: new Date(1996, 0, 1),
+                    // Maksimivuosi, kuukausi (joulukuu = 11) ja päivä
+                    maxDate: new Date(2015, 11, 31),
+
+                    // Kun käyttäjä on valinnut päiväyksen, tapahtuu metodin seuraavat asiat:
+                    onSelect: function(dateText) {
+                        $('#selectedDate').text("Valittu päivämäärä: " + dateText); // Valitun p-kentän teksti muutetaan
+                        $('#selectedDate').css("color", "blue"); // Muutetaan myös väri
+                    },
+                });
+            });
+        
+        </script>
+    </head>
+    <body>
+        <p>Syötä syntymäpäivä: <input type="text" id="datepicker"></p>
+
+        <!-- Punainen väri määriteltynä suoraan p-elementtiin -->
+        <p id="selectedDate" style="color:red">Päivämäärää ei ole valittu</p>
+    </body>
+</html>

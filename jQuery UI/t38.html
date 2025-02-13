@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <html lang="fi">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+        <script src="datepicker-fi.js"></script>
+        
+        <script>
+            $(function() {
+                $("#datepicker").datepicker({
+                    regional: 'fi',
+                    minDate: new Date(1996, 0, 1),
+                    maxDate: new Date(2015, 11, 31),
+                    onSelect: function(dateText) {
+                        $('#selectedDate').text("Valittu päivämäärä: " + dateText); 
+                        $('#selectedDate').css("color", "blue");
+                    },
+                });
+                // Lista valmiita paikkakuntia
+                var birthPlaces = [
+                    "Kuopio", "Juva", "Oulu", "Jyväskylä", "Espoo", "Helsinki", "Tampere", "Turku", "Hämeenlinna", "Kemi", "Vaasa",
+                ];
+                // Paikat näkyvät vaihtoehtoina kun käyttäjä kirjoittaa tekstipalkkiin
+                $("#birthplace").autocomplete({
+
+                    // Haetaan lähde listasta
+                    source: birthPlaces,
+                    // Kun paikkakunta on valittu, tulee kyseisen kentän alle lisäteksti,
+                    // jossa syntymäpaikka kerrotaan ja muutetaan väriä samaan tyyliin kuin datepickerissä.
+                    select: function(event, ui) {
+                        // function(event, ui) = Event handler function, that is executed when an item is selected from the autocomplete dropdown.
+                        // ui = Object parameter, that contains data related to the selected item
+                        $('#selectedBirthPlace').text("Syntymäpaikka on: " + ui.item.value);  // Haetaan käyttöliittymän valittu item ja sen arvo, eli mitä käyttäjä laittoi tekstikenttään.
+                        $("#selectedBirthPlace").css("color", "purple");
+                    },
+
+                    // Käyttäjä voi myös lisätä oman paikkakuntansa, jos sitä ei ole valmiissa listassa
+                    change: function(event, ui) {
+                        var writtenPlace = $(this).val(); // Kyseisen kentän syötetty arvo
+
+                        // Etsitään löytyykö samaa paikkakuntaa jo valmiiksi listasta
+                        // Palautuu arvo "-1" (koska listan indexit alkavat aina nollasta 0, 1, 2, 3..) eli samaa paikkakuntaa ei löytynyt
+                        if ($.inArray(writtenPlace, birthPlaces) === -1 ) {
+                            $('#selectedBirthPlace').text("Syntymäpaikka on: " + writtenPlace);
+                            $("#selectedBirthPlace").css("color", "purple");
+                        }
+                    }
+                });
+
+            });
+            
+        </script>
+    </head>
+    <body>
+        <p>Syötä syntymäpäivä: <input type="text" id="datepicker"></p>
+        <p id="selectedDate" style="color:red">Päivämäärää ei ole valittu</p>
+
+        <p>Syötä syntymäpaikka: <input type="text" id="birthplace"></p>
+        <!-- Syntymäpaikka tulee tänne -->
+        <p id="selectedBirthPlace"></p>
+    </body>
+</html>

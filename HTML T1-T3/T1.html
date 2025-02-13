@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+table {
+    table-layout: fixed; /* this is an important one, makes every cell equally the same width!!! */
+    word-wrap: break-word; /* also important: prevents words from overflowing out of the cells */
+}
+table, th, td {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 1px solid black;
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+th, td {
+    padding: 3px;
+}
+</style>
+</head>
+
+<body>
+
+<table style="width: 620px;"> <!--the table is created here, with a specific width. -->
+    <tr> <!--first row-->
+        <th rowspan="2" colspan="2">Henkilöstö</th>
+        <th colspan="3">Koulutus</th>
+    </tr>
+    
+    <tr> <!--second row-->
+        <th>Muu</th>
+        <th>Ammatti-korkeakoulu</th>
+        <th>Korkeakoulu</th>
+    </tr>
+
+    <tr> <!--third row-->
+
+    </tr>
+
+    <tr> <!-- fourth row-->
+        <th rowspan="3">Ikä</th>
+        <th>- 30</th>
+
+        <td></td>
+        <td> <a href="https://www.savonia.fi/">Savonia</a> </td>
+        <td></td>
+
+    </tr>
+
+    <tr> <!-- fifth row-->
+        <th>30 - 50</th>
+
+        <td>
+            <ul>
+                <li>Kuopion taidelukio</li>
+                <li>Ammattiopisto Sakky</li>
+                <li>Kuopion Lyseon lukio</li>
+            </ul>
+
+
+        </td>
+
+        <td> </td>
+        <td> </td>
+    </tr>
+
+    <tr> <!--sixth row-->
+        <th>50 -</th>
+        <td> </td>
+        <td><b><i>Karelia-ammattikorkeakoulu</i></b></td>
+        <td><b><i>University of Eastern Finland<i></i></b></td>
+    </tr>
+
+</table>
+
+</body>
+</html>
