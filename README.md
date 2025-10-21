@@ -1,3 +1,4 @@
-# Web Programming I
+## Web Programming I<br>
 
-A collection of practice assignments in "Web Programming I" course, that I made during my second year of studies.
+A collection of practice assignments in "Web Programming I" course.
+_Made during my second year of studies._
